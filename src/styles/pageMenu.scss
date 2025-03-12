@@ -1,0 +1,110 @@
+// 🎨 Styling för menyn
+
+.menu-container {
+    width: 90%;
+    max-width: 800px;
+    max-height: 460px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// ✅ Layout för sektionerna
+.menu-row {
+    display: flex;
+    gap: 15px; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+}
+
+// 🍽 Matsektion (Wonton)
+.wonton-container {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f4f4f4;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+/* 🎨 Anpassa scrollbar */
+.wonton-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wonton-container::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+}
+
+.wonton-container::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
+}
+
+// 🥤 Dryck & 🍶 Dip sektioner
+.drink-container,
+.dip-container {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+}
+
+// 🎨 Boxad design för varje rätt
+.menu-item {
+    font-size: 10px;
+    background-color: #ffffff;
+    padding: 5px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer; // ✅ Gör hela boxen klickbar
+
+    &:hover {
+        transform: scale(1.05); // 🚀 Gör att det känns interaktivt
+        background-color: #f0f0f0;
+    }
+}
+
+// 🔹 Anpassa bakgrundsfärg per kategori
+.wonton-container .menu-item {
+    background-color: #fffbf0;
+    height: 130px;
+}
+
+.drink-container .menu-item {
+    background-color: #d0f0fd;
+}
+
+.dip-container .menu-item {
+    background-color: #ffe4e1;
+}
+
+// ✅ Styling för beskrivning & ingredienser
+.description {
+    font-size: 12px;
+    color: #444;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.ingredients {
+    font-size: 10px;
+    color: #666;
+}
+
+.price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    margin-left: 5px;
+}
