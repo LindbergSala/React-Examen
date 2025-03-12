@@ -1,21 +1,27 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Menu from "./pages/Menu";
-import Order from "./pages/Order";
-import Status from "./pages/Status";
-import Receipt from "./pages/Receipt";
-import "./styles/main.scss";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import Header from "./components/Header";
+import PageMenu from "./pages/pageMenu";
+import PageOrder from "./pages/pageOrder";
+import PageStatus from "./pages/pageStatus";
+import PageReceipt from "./pages/pageReceipt";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Menu />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/status" element={<Status />} />
-        <Route path="/receipt" element={<Receipt />} />
-      </Routes>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<PageMenu />} />
+          <Route path="/order" element={<PageOrder />} />
+          <Route path="/status" element={<PageStatus />} />
+          <Route path="/receipt" element={<PageReceipt />} />
+        </Routes>
+      </Router>
+    </Provider>
   );
-}
+};
 
 export default App;
