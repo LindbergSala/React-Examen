@@ -1,0 +1,63 @@
+.receipt-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; // Bakgrund liknande ett kvitto
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: "Courier New", Courier, monospace; // Ger en "kvitto"-känsla
+}
+
+// 🛒 Titelstil
+.receipt-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+// 📜 Lista med beställda varor
+.receipt-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.receipt-list li {
+    padding: 8px;
+    font-size: 16px;
+    border-bottom: 1px dashed #ccc; // Ger en kvittoliknande effekt
+    display: flex;
+    justify-content: space-between;
+}
+
+// 💰 Totalbeloppet
+.receipt-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+// 🏷️ Momsinformation
+.receipt-tax {
+    font-size: 14px;
+    color: #666;
+}
+
+// 🔄 Knapp för ny beställning
+.receipt-container .new-order-button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background-color: darkred;
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { placeOrder } from "../redux/orderSlice";
-import { removeFromCart } from "../redux/cartSlice";  // ✅ Se till att detta nu fungerar
+import { removeFromCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import "../styles/pageOrder.scss";
 
@@ -43,16 +43,19 @@ const PageOrder = () => {
             <span> {item.quantity}x</span> 
             <span> - {item.price * item.quantity} kr</span>
             {/* 🗑️ Knapp för att ta bort en vara */}
-            <button className="undo-button" onClick={() => dispatch(removeFromCart(item.id))}>❌</button>
+            <button className="undo-button" onClick={() => dispatch(removeFromCart(item.id))}>X</button>
           </li>
         ))}
       </ul>
 
       <h2>Total: {totalAmount} kr</h2>
 
-      <button className="buy-button" onClick={handleOrder} disabled={orderStatus === "loading"}>
-        {orderStatus === "loading" ? "Lägger beställning..." : "Lägg Beställning"}
-      </button>
+      <div className="button-group">
+        <button className="back-button" onClick={() => navigate("/")}>Tillbaka</button>
+        <button className="buy-button" onClick={handleOrder} disabled={orderStatus === "loading"}>
+          {orderStatus === "loading" ? "Lägger beställning..." : "Lägg Beställning"}
+        </button>
+      </div>
     </div>
   );
 };

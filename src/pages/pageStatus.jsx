@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux"; // ✅ Lagt till dispatch
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../redux/cartSlice"; // ✅ Importera Redux-funktionen för att rensa varukorgen
+import delivery from "../assets/delivery.png"; // ✅ Importera bilden korrekt
+import "../styles/pageStatus.scss";
 
 const PageStatus = () => {
   const order = useSelector((state) => state.order);
@@ -21,7 +23,7 @@ const PageStatus = () => {
       <p>Ordernummer: <strong>{order.orderId ? order.orderId : "Ej tillgängligt"}</strong></p>
       <p>Beräknad leveranstid: <strong>{order.eta ? `${order.eta} minuter` : "Ej tillgängligt"}</strong></p>
 
-      <img src="/assets/delivery.png" alt="Orderstatus" className="status-image" />
+      <img src={delivery} alt="Orderstatus" className="status-image" />
       
       <div className="status-buttons">
         <button onClick={handleNewOrder}>

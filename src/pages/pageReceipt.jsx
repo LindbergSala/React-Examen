@@ -1,35 +1,52 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clearCart } from "../redux/cartSlice"; 
+import { clearCart } from "../redux/cartSlice";
+import "../styles/pageReceipt.scss";
 
 const PageReceipt = () => {
   const cart = useSelector((state) => state.cart.items);
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-  const tax = (total * 0.20).toFixed(2);
-  const totalWithTax = (total + parseFloat(tax)).toFixed(2);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // ✅ Gruppar varorna och räknar antal
+  const groupedCart = cart.reduce((acc, item) => {
+    const existingItem = acc.find((i) => i.id === item.id);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      acc.push({ ...item, quantity: 1 });
+    }
+    return acc;
+  }, []);
+
+  // ✅ Beräknar totalbeloppet
+  const totalAmount = groupedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const tax = (totalAmount * 0.20).toFixed(2);
+  const totalWithTax = (totalAmount + parseFloat(tax)).toFixed(2);
+
   const handleNewOrder = () => {
-    dispatch(clearCart()); // ✅ Rensar Redux och Local Storage
+    dispatch(clearCart());
     navigate("/");
   };
 
   return (
     <div className="receipt-container">
       <h2>Kvitto</h2>
-      <ul>
-        {cart.map((item) => (
+      
+      <ul className="receipt-list">
+        {groupedCart.map((item) => (
           <li key={item.id}>
-            {item.name} - {item.price} SEK
+            <span className="item-name">{item.name} {item.quantity}x</span>
+            <span className="item-price">{item.price * item.quantity} SEK</span>
           </li>
         ))}
       </ul>
-      <p><strong>Total:</strong> {totalWithTax} SEK</p>
-      <p><small>(Inkl. moms: {tax} SEK)</small></p>
 
-      <button onClick={handleNewOrder}>Ny beställning</button>
+      <p className="receipt-total"><strong>Total:</strong> {totalWithTax} SEK</p>
+      <p className="receipt-tax"><small>(Inkl. moms: {tax} SEK)</small></p>
+
+      <button className="new-order-button" onClick={handleNewOrder}>Ny beställning</button>
     </div>
   );
 };
