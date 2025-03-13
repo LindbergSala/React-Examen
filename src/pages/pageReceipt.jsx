@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../redux/cartSlice";
+import receiptImage from "../assets/receipt.png"; // ✅ Importera bilden
 import "../styles/pageReceipt.scss";
 
 const PageReceipt = () => {
@@ -32,8 +33,11 @@ const PageReceipt = () => {
 
   return (
     <div className="receipt-container">
+      {/* 🖼️ Lägg till en bild ovanför rubriken */}
+      <img src={receiptImage} alt="Kvitto" className="receipt-image" />
+
       <h2>Kvitto</h2>
-      
+
       <ul className="receipt-list">
         {groupedCart.map((item) => (
           <li key={item.id}>

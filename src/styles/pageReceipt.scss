@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff; // Bakgrund liknande ett kvitto
+    background-color: hsla(0, 0%, 97%, 0.824);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -42,7 +42,7 @@
 // 🏷️ Momsinformation
 .receipt-tax {
     font-size: 14px;
-    color: #666;
+    color: #000000;
 }
 
 // 🔄 Knapp för ny beställning
@@ -50,7 +50,7 @@
     margin-top: 20px;
     padding: 10px 15px;
     font-size: 16px;
-    background-color: red;
+    background-color: hsla(0, 51%, 36%, 0.902);
     color: white;
     border: none;
     border-radius: 5px;
@@ -60,4 +60,9 @@
     &:hover {
         background-color: darkred;
     }
+}
+
+.receipt-image {
+    width: 100px; // Anpassa storleken
+    margin-bottom: 10px; // Lägg till lite mellanrum till rubriken
 }

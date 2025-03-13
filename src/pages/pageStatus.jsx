@@ -26,9 +26,7 @@ const PageStatus = () => {
       <img src={delivery} alt="Orderstatus" className="status-image" />
       
       <div className="status-buttons">
-        <button onClick={handleNewOrder}>
-          Ny beställning
-        </button>
+        <button onClick={handleNewOrder}>Till Menyn</button>
         <button onClick={() => navigate("/receipt")}>Visa kvitto</button>
       </div>
     </div>
