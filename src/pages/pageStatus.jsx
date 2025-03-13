@@ -20,7 +20,7 @@ const PageStatus = () => {
     <div className="status-container">
       <h2>Din beställning är på väg!</h2>
       
-      <p>Ordernummer: <strong>{order.orderId ? order.orderId : "Ej tillgängligt"}</strong></p>
+      <p>Ordernummer: #<strong>{order.orderId ? order.orderId : "Ej tillgängligt"}</strong></p>
       <p>Beräknad leveranstid: <strong>{order.eta ? `${order.eta} minuter` : "Ej tillgängligt"}</strong></p>
 
       <img src={delivery} alt="Orderstatus" className="status-image" />

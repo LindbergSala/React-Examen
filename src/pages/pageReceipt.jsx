@@ -7,7 +7,7 @@ import "../styles/pageReceipt.scss";
 
 const PageReceipt = () => {
   const cart = useSelector((state) => state.cart.items);
-  const order = useSelector((state) => state.order); // ✅ Hämta orderinfo från Redux
+  const order = useSelector((state) => state.order);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,8 +39,7 @@ const PageReceipt = () => {
 
       <h2>Kvitto</h2>
 
-      {/* 🏷️ Ordernummer visas här */}
-      <p><strong>Ordernummer:</strong> {order.orderId ? order.orderId : "Ej tillgängligt"}</p>
+      <p>Ordernummer: #<strong>{order.orderId ? order.orderId : "Ej tillgängligt"}</strong></p>
 
       <ul className="receipt-list">
         {groupedCart.map((item) => (
