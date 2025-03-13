@@ -7,7 +7,7 @@ export const placeOrder = createAsyncThunk("order/placeOrder", async (_, { getSt
     items: cart.map(item => item.id)
   });
 
-  console.log("🔹 Sending order to API:", requestBody);
+  console.log("Sending order to API:", requestBody);
 
   try {
     const response = await fetch("https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com/oj40/orders", {
@@ -22,16 +22,16 @@ export const placeOrder = createAsyncThunk("order/placeOrder", async (_, { getSt
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("❌ API Error Response:", data); 
+      console.error("API Error:", data); 
       throw new Error(`API Error: ${data.message || "Unknown error"}`);
     }
 
-    console.log("✅ API Order Response:", data); 
+    console.log("API Order Response:", data); 
     return data.order; 
 
   } catch (error) {
-    console.error("❌ Fetch Error:", error.message);
-    return { id: "N/A", eta: null }; 
+    console.error("Fetch Error:", error.message);
+    return { id: "Error", eta: null }; 
   }
 });
 
@@ -45,16 +45,16 @@ const orderSlice = createSlice({
         state.status = "loading";
       })
       .addCase(placeOrder.fulfilled, (state, action) => {
-        console.log("✅ Order saved in Redux:", action.payload);
+        console.log("Order Saved:", action.payload);
 
-        state.orderId = action.payload.id || "N/A";
+        state.orderId = action.payload.id || "Error";
 
-        // ✅ Omvandla ETA från ISO-tid till minuter
+        // Omvandla ETA från ISO-tid till minuter
         if (action.payload.eta) {
           const etaTime = new Date(action.payload.eta);
           const currentTime = new Date();
           const etaMinutes = Math.round((etaTime - currentTime) / 60000); // Konvertera ms till minuter
-          state.eta = etaMinutes > 0 ? etaMinutes : 1; // Säkerställ minst 1 min
+          state.eta = etaMinutes > 0 ? etaMinutes : 1;
         } else {
           state.eta = Math.floor(Math.random() * 30) + 10;
         }

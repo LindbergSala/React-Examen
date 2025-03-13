@@ -1,4 +1,3 @@
-// 🎨 Styling för menyn
 .menu-container {
     width: 90%;
     max-width: 800px;
@@ -10,7 +9,6 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-// ✅ Layout för sektionerna
 .menu-row {
     display: flex;
     gap: 15px; 
@@ -18,7 +16,7 @@
     flex-wrap: wrap;
 }
 
-// 🍽 Matsektion (Wonton)
+// Mat
 .wonton-container {
     flex: 2; 
     display: flex;
@@ -34,7 +32,6 @@
     border-radius: 10px;
 }
 
-/* 🎨 Anpassa scrollbar */
 .wonton-container::-webkit-scrollbar {
     width: 6px;
 }
@@ -48,7 +45,7 @@
     background-color: #450000;
 }
 
-// 🥤 Dryck & 🍶 Dip sektioner
+// Dryck & Dip
 .drink-container,
 .dip-container {
     flex: 1;
@@ -56,7 +53,6 @@
     padding: 15px;
 }
 
-// 🎨 Boxad design för varje rätt
 .menu-item {
     font-size: 10px;
     background-color: #ffffff;
@@ -66,15 +62,14 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s ease-in-out;
-    cursor: pointer; // ✅ Gör hela boxen klickbar
+    cursor: pointer;
 
     &:hover {
-        transform: scale(1.05); // 🚀 Gör att det känns interaktivt
+        transform: scale(1.05);
         background-color: #f0f0f0;
     }
 }
 
-// 🔹 Anpassa bakgrundsfärg per kategori
 .wonton-container .menu-item {
     background-color: #fffbf0;
     height: 130px;
@@ -88,7 +83,6 @@
     background-color: #ffe4e1;
 }
 
-// ✅ Styling för beskrivning & ingredienser
 .description {
     font-size: 12px;
     color: #000000;

@@ -43,7 +43,6 @@ const PageOrder = () => {
             <span> {item.quantity}x</span> 
             <span> - {item.price * item.quantity} kr</span>
             
-            {/* Knapp för att ta bort en vara */}
             <button className="undo-button" onClick={() => dispatch(removeFromCart(item.id))}>X</button>
           </li>
         ))}
@@ -54,7 +53,7 @@ const PageOrder = () => {
       <div className="button-group">
         <button className="back-button" onClick={() => navigate("/")}>Tillbaka</button>
         <button className="buy-button" onClick={handleOrder} disabled={orderStatus === "loading"}>
-          {orderStatus === "loading" ? "Lägger beställning..." : "Lägg Beställning"}
+          {orderStatus === "loading" ? "Lägger beställning..." : "Skicka Beställningen"}
         </button>
       </div>
     </div>

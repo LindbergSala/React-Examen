@@ -1,9 +1,9 @@
 body {
   font-family: Arial, sans-serif;
-  background-image: url("../assets/background.jpg"); // ✅ Sätter bakgrundsbild
-  background-size: cover; // ✅ Gör att bilden täcker hela skärmen
-  background-position: center; // ✅ Centrerar bilden
-  background-repeat: no-repeat; // ✅ Förhindrar att bilden upprepas
+  background-image: url("../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
 }
@@ -14,7 +14,7 @@ body {
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  background: rgba(139, 45, 45, 0.9); // ✅ Lätt transparens för bättre läsbarhet
+  background: rgba(139, 45, 45, 0.9);
   color: white;
   border-radius: 10px;
 }

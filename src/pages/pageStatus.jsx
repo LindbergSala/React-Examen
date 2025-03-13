@@ -1,19 +1,19 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux"; // ✅ Lagt till dispatch
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { clearCart } from "../redux/cartSlice"; // ✅ Importera Redux-funktionen för att rensa varukorgen
-import delivery from "../assets/delivery.png"; // ✅ Importera bilden korrekt
+import { clearCart } from "../redux/cartSlice";
+import delivery from "../assets/delivery.png";
 import "../styles/pageStatus.scss";
 
 const PageStatus = () => {
   const order = useSelector((state) => state.order);
-  const dispatch = useDispatch(); // ✅ Använd Redux Dispatch
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleNewOrder = () => {
-    dispatch(clearCart()); // ✅ Töm Redux
-    localStorage.clear(); // ✅ Töm Local Storage
-    navigate("/"); // ✅ Tillbaka till menyn
+    dispatch(clearCart());
+    localStorage.clear();
+    navigate("/");
   };
 
   return (

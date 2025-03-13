@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../redux/cartSlice";
-import receiptImage from "../assets/receipt.png"; // ✅ Importera bilden
+import receiptImage from "../assets/receipt.png";
 import "../styles/pageReceipt.scss";
 
 const PageReceipt = () => {
@@ -10,7 +10,7 @@ const PageReceipt = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // ✅ Gruppar varorna och räknar antal
+  // Gruppar varorna och räknar antal
   const groupedCart = cart.reduce((acc, item) => {
     const existingItem = acc.find((i) => i.id === item.id);
     if (existingItem) {
@@ -21,7 +21,7 @@ const PageReceipt = () => {
     return acc;
   }, []);
 
-  // ✅ Beräknar totalbeloppet
+  // Beräknar totalbeloppet
   const totalAmount = groupedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const tax = (totalAmount * 0.20).toFixed(2);
   const totalWithTax = (totalAmount + parseFloat(tax)).toFixed(2);
@@ -33,7 +33,7 @@ const PageReceipt = () => {
 
   return (
     <div className="receipt-container">
-      {/* 🖼️ Lägg till en bild ovanför rubriken */}
+      
       <img src={receiptImage} alt="Kvitto" className="receipt-image" />
 
       <h2>Kvitto</h2>
