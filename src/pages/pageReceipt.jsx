@@ -49,8 +49,8 @@ const PageReceipt = () => {
 
       <p className="receipt-total"><strong>Total:</strong> {totalWithTax} SEK</p>
       <p className="receipt-tax"><small>(Inkl. moms: {tax} SEK)</small></p>
-
-      <button className="new-order-button" onClick={handleNewOrder}>Ny beställning</button>
+      
+      <button className="new-order-button" onClick={handleNewOrder}>Till Startsidan</button>
     </div>
   );
 };
