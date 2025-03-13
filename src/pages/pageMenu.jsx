@@ -18,7 +18,7 @@ const PageMenu = () => {
         setMenu(data.items || []);
       })
       .catch((error) => {
-        console.error("API Fetch Error:", error);
+        console.error("API Fetch Fail:", error);
         setMenu([]);
       });
   }, []);
@@ -26,7 +26,8 @@ const PageMenu = () => {
   return (
     <div className="menu-container">
       <div className="menu-row">
-        {/* 🥤 Dryck */}
+        
+        {/* Dryck */}
         <div className="drink-container">
           <h2>Dryck <span className="price">({menu.find(item => item.type === "drink")?.price} SEK)</span></h2>
           {menu
@@ -42,7 +43,7 @@ const PageMenu = () => {
             ))}
         </div>
 
-        {/* 🍽 Mat */}
+        {/* Mat */}
         <div
           className="wonton-container"
           style={{ backgroundImage: `url(${bladImage})` }}
@@ -65,7 +66,7 @@ const PageMenu = () => {
             ))}
         </div>
 
-        {/* 🍶 Dippar */}
+        {/* Dippar */}
         <div className="dip-container">
           <h2>Dippar <span className="price">({menu.find(item => item.type === "dip")?.price} SEK)</span></h2>
           {menu

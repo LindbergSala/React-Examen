@@ -11,7 +11,7 @@ const PageOrder = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // ✅ Gruppar varorna och räknar antal
+  //Gruppar varorna och räknar antal
   const groupedCart = cart.reduce((acc, item) => {
     const existingItem = acc.find((i) => i.id === item.id);
     if (existingItem) {
@@ -22,10 +22,10 @@ const PageOrder = () => {
     return acc;
   }, []);
 
-  // ✅ Beräknar totalbeloppet
+  //Beräknar totalbeloppet
   const totalAmount = groupedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  // ✅ Hantera beställning och navigera
+  //Hantera beställning och navigera
   const handleOrder = async () => {
     const result = await dispatch(placeOrder());
     if (result.meta.requestStatus === "fulfilled") {
@@ -42,7 +42,8 @@ const PageOrder = () => {
             <strong>{item.name}</strong>
             <span> {item.quantity}x</span> 
             <span> - {item.price * item.quantity} kr</span>
-            {/* 🗑️ Knapp för att ta bort en vara */}
+            
+            {/* Knapp för att ta bort en vara */}
             <button className="undo-button" onClick={() => dispatch(removeFromCart(item.id))}>X</button>
           </li>
         ))}
